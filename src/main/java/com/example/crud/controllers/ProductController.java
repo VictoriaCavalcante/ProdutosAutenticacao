@@ -4,6 +4,7 @@ import com.example.crud.domain.product.Product;
 import com.example.crud.domain.product.ProductDTO;
 import com.example.crud.domain.product.ProductRepository;
 import com.example.crud.domain.product.ProdutoDTO;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,10 @@ public class ProductController {
             Product p = optionalProduct.get();//passando o optional para um produto para conseguir acessar os métodos set
             p.setName(dados.name());
             p.setPrice_in_cents(dados.price_in_cents());
-        }
-        return ResponseEntity.ok().build();
+            return ResponseEntity.ok().build();
+        }else
+            return ResponseEntity.notFound().build();
+
     }
 
     @DeleteMapping("/{id}")
@@ -55,7 +58,7 @@ public class ProductController {
             p.setActive(false);
             return ResponseEntity.noContent().build();
         }else{
-            return ResponseEntity.notFound().build();
+            throw new EntityNotFoundException();
         }
     }
 
