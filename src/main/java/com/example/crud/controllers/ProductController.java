@@ -1,8 +1,7 @@
 package com.example.crud.controllers;
 
 import com.example.crud.domain.product.Product;
-import com.example.crud.domain.product.ProductDTO;
-import com.example.crud.domain.product.ProductRepository;
+import com.example.crud.repositories.ProductRepository;
 import com.example.crud.domain.product.ProdutoDTO;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -12,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/product")

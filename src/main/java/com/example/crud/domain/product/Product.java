@@ -5,7 +5,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.UUID;
 
 @Table(name="product")
 @Entity(name = "product")
