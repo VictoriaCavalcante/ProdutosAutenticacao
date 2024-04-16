@@ -1,7 +1,7 @@
 package com.example.crud.domain.user;
 
 public enum UserRole {
-    ADMIN("admin");
+    ADMIN("admin"),
     USER("user");
 
     private String role;
